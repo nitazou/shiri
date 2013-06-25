@@ -1,6 +1,12 @@
-# coding: utf-8
+#app.rb
+require "rubygems"
+require "sinatra"
 
-a="テストaa"
+# リロードに必要な設定
+set :environment, :development
+require "sinatra/base"
 
-puts a
-
+# マッピング
+get "/" do
+  "Hello world!うぉぉぉぉわえｒくぇｒｑｒ"
+end
