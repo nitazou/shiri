@@ -1,6 +1,6 @@
 # coding: utf-8
 
-a="sdrあああt"
+a="テスト"
 
 puts a
 
