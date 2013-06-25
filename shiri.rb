@@ -1,6 +1,6 @@
 # coding: utf-8
 
-a="テスト"
+a="テストa"
 
 puts a
 
