@@ -4,5 +4,5 @@ require "rubygems"
 require "sinatra"
 
 get "/" do
-  "Hello world–k[[[[[[( ;Í;)"
+  "Hello worldåŒ—ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼( ;âˆ€;)"
 end
