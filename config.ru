@@ -1,2 +1,2 @@
-require 'shiri'
+require './shiri'
 run Sinatra::Application
