@@ -4,5 +4,5 @@ require "sinatra"
 
 # マッピング
 get "/" do
-  "Hello world!うぉぉぉぉわえｒくぇｒｑｒ"
+  "Hello world"
 end
