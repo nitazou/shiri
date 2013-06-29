@@ -1,0 +1,58 @@
+<html>
+	<head>
+	<title>全自動しりとり</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    
+
+    jQuery(document).ready( function() {
+        $("#button").click(function(){
+            $.get("shiritori_process?key="+ $("#text_box").val(),function(data){
+  				var outdata = data.split(",");
+  				$("#output").html("");
+  				jQuery.each(outdata, function(i) {	
+  					$("#output").append("<p>"+outdata[i]+"</p>");
+  					//alert(divstr+outdata[i]+"</div>");
+  				});
+  				
+$(function () {
+  $('p').hide().each(function(i){
+    $(this).delay(i * 500).fadeIn('slow');
+  });
+});
+
+
+  			});
+  			
+        });
+        
+    });
+    </script>
+	</head>
+	<body>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<Div Align="right">
+<div class="fb-like" data-href="http://shiritori.herokuapp.com/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true" data-font="arial"></div>
+</div>
+
+
+	<Div Align="center">
+	<h1>全自動しりとり</h1>
+		<input type="text" id="text_box" value="aaa,bbb,ccc"><button id="button">スタート</button>
+		<br>
+	</div>
+	<br>
+	<div Align="center" id="output"></div>
+	</body>
+</html>
