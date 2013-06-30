@@ -15,7 +15,7 @@ $(function () {
  });
     jQuery(document).ready( function() {
         $("#button").click(function(){
-            $.get("shiritori_process?key="+ $("#text_box").val(),function(data){
+            $.get("shiritori_process?key="+ encodeURI($("#text_box").val()),function(data){
   				var outdata = data.split(",");
   				$("#output").html("");
   				jQuery.each(outdata, function(i) {	
@@ -73,10 +73,10 @@ width:5em;
 }
 -->
 </style>
-		<input type="text" class="typetext" id="text_box" size="30" value=""><button id="button" class="typetext1">スタート</button>
+		<input type="text" class="typetext" id="text_box" value=""><button id="button" class="typetext1">スタート</button>
 		<br>
 	</div>
-	<div Align="center" style="font-size:15pt;" id="output"></div>
+	<div Align="center" id="output"></div>
 	<br><br>
 <span style="margin:15px 15px 15px 15px"><a href="http://www.google.com/">Googleサジェスト</a></span><br>
 <!-- Begin Yahoo! JAPAN Web Services Attribution Snippet -->
