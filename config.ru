@@ -1,2 +1,2 @@
 require './shiri'
-MyApp.run!
+run Sinatra::Application
