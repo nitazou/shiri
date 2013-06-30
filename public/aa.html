@@ -7,7 +7,12 @@
 		<script type="text/javascript" src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
     <script type="text/javascript">
     
-
+$(function () {
+ $.get("shiritori_tango",function(data){
+  $("#text_box").val(data);
+  
+  });
+ });
     jQuery(document).ready( function() {
         $("#button").click(function(){
             $.get("shiritori_process?key="+ $("#text_box").val(),function(data){
