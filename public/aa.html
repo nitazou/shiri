@@ -47,7 +47,7 @@ $(function () {
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
+  js = d.createElement(s); js.id = id; js.async = true;
   js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
@@ -57,8 +57,7 @@ $(function () {
 
 	<Div Align="center">
 	<h1>全自動しりとり</h1>
-	<label for="text_box">Text Input:</label>
-		<input type="text" id="text_box" value="aaa,bbb,ccc" /><button id="button">スタート</button>
+		<input type="text" id="text_box" value=""><button id="button">スタート</button>
 		<br>
 	</div>
 	<div Align="center" id="output"></div>

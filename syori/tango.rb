@@ -8,11 +8,11 @@ class Tango
 		tango1=[]
 		i=0
 
-		agent.page.search('li')[0..40].each do |p|
+		agent.page.search('li')[0..20].each do |p|
   			tango1<< p.inner_text#.tosjis
   			i=i+1
 		end
 
-		return tango1[rand(40)]
+		return tango1[rand(20)]
 	end
 end
