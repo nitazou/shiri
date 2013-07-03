@@ -1,7 +1,7 @@
 # coding: utf-8
 require "rubygems"
 require "sinatra/base"
-require './syori/shiritori.rb'
+
 
 
 class MyApp < Sinatra::Base
@@ -12,6 +12,7 @@ get "/" do
 end
 
 get '/shiritori_process' do
+require './syori/shiritori.rb'
 output=Shiritori.new
  $input_key=params['key']
  return output.syori
@@ -30,4 +31,4 @@ end
 end
 
 
-MyApp.run!
+MyApp.run! :host => 'localhost', :port => 4567
