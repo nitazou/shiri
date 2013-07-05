@@ -5,6 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
 		<script type="text/javascript" src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+		<script src="jquery.activity-indicator-1.0.0.js"></script>
     <script type="text/javascript">
     
 $(function () {
@@ -15,9 +16,12 @@ $(function () {
  });
     jQuery(document).ready( function() {
         $("#button").click(function(){
+		$('#busy4').activity({segments: 12, width: 5.5, space: 6, length: 13, color: '#252525', speed: 1.5});
+        
             $.get("shiritori_process?key="+ encodeURI($("#text_box").val()),function(data){
   				var outdata = data.split(",");
   				$("#output").html("");
+  				$("#busy4").hide();
   				jQuery.each(outdata, function(i) {	
   					$("#output").append("<p>"+outdata[i]+"</p>");
   					//alert(divstr+outdata[i]+"</div>");
@@ -97,10 +101,13 @@ a:active {/*クリック中*/
     text-decoration:none;
 }
 </style>
+
+
 		<input type="text" class="typetext" id="text_box" value=""> <button id="button" class="typetext1">Go!</button>
 		<br>
 	</div>
 	<div Align="center" id="output" style="font-size:15pt;"></div>
+	<div Align="center"><br><br><br><br><div id="busy4" class="square"></div></div>
 	<br><br>
 	<span style="margin:15px 15px 15px 15px">連絡先：nitazou@gmail.com</span><br><br>
 	<span style="margin:15px 15px 15px 15px"></span><br>

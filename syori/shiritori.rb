@@ -144,6 +144,7 @@ class Shiritori
 	
 	def onbiki_del
 		@yomi_keyword_result.slice! "ー"
+		@yomi_keyword_result.slice! "ー"
 		@yomi_keyword_result.slice! "-"
 	end
 	

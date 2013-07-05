@@ -31,4 +31,4 @@ end
 end
 
 
-MyApp.run!
+MyApp.run! :host => 'localhost', :port => 4567
