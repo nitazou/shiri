@@ -1,121 +1,147 @@
-<html>
-	<head>
-	<title>全自動しりとり</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
-		<script type="text/javascript" src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
-		<script src="jquery.activity-indicator-1.0.0.js"></script>
+﻿<html>
+<head>
+    <title>全自動しりとり</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+    <script src="jquery.activity-indicator-1.0.0.js"></script>
+
     <script type="text/javascript">
-    
-$(function () {
- $.get("shiritori_tango",function(data){
-  $("#text_box").val(data);
-  
-  });
- });
-    jQuery(document).ready( function() {
-        $("#button").click(function(){
-		$('#busy4').activity({segments: 12, width: 5.5, space: 6, length: 13, color: '#252525', speed: 1.5});
-        
-            $.get("shiritori_process?key="+ encodeURI($("#text_box").val()),function(data){
-  				var outdata = data.split(",");
-  				$("#output").html("");
-  				$("#busy4").hide();
-  				jQuery.each(outdata, function(i) {	
-  					$("#output").append("<p>"+outdata[i]+"</p>");
-  					//alert(divstr+outdata[i]+"</div>");
-  				});
-  				
-  				$(function () {
-  $('p').hide().each(function(i){
-    $(this).delay(i * 500).fadeIn('slow');
-  });
-});
+        $(function () {
 
-
-  			});
-  			
+            $.get("shiritori_tango", function (data) {
+                $("#text_box").val(data);
+            });
         });
-        
-    });
+        jQuery(document).ready(function () {
+
+            $('#busy4').activity({ segments: 12, width: 5.5, space: 6, length: 13, color: '#252525', speed: 1.5 });
+            $("#busy4").hide();
+
+            $("#button").click(function () {
+
+                $("#output").html("");
+
+
+
+                $("#kankaku").show();
+                $("#busy4").show();
+                $.get("shiritori_process?key=" + encodeURI($("#text_box").val()), function (data) {
+                    $("#output").html("");
+                    var outdata = data.split(",");
+
+                    $("#busy4").hide();
+                    $("#kankaku").hide();
+                    jQuery.each(outdata, function (i) {
+                        $("#output").append("<p>" + outdata[i] + "</p>");
+                        //alert(divstr+outdata[i]+"</div>");
+                    });
+
+                    $(function () {
+                        $('p').hide().each(function (i) {
+                            $(this).delay(i * 500).fadeIn('slow');
+                        });
+                    });
+
+
+                });
+
+            });
+
+        });
     </script>
 
 
-	</head>
-	<body>
+</head>
+<body>
 
 
 
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id; js.async = true;
-  js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<Div Align="right">
-<div class="fb-like" data-href="http://shiritori.herokuapp.com/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true" data-font="arial"></div>
-</div>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id; js.async = true;
+            js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div align="right">
+        <div class="fb-like" data-href="http://shiritori.herokuapp.com/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true" data-font="arial"></div>
+    </div>
 
-	<Div Align="center">
-	<h1><a href="http://shiritori.herokuapp.com/">全自動しりとり</a></h1>
-<style type="text/css">
-<!--
-.typetext{
-font-size:17pt;
-width:8em;
-}
--->
-</style>
-<style type="text/css">
-<!--
-.typetext1{
-font-size:17pt;
-width:4em;
-}
--->
-</style>
-<style type="text/css">
-a{/*リンクされた文字*/
-    color:#000000;
-    font-style:normal;
-    text-decoration:none;
-}
-a:link {/*未訪問のリンク*/
-    color:#000000;
-    font-style:normal;
-    text-decoration:none;
-}
-a:visited {/*訪問後のリンク*/
-    color:#000000;
-    text-decoration:none;
-}
-a:hover {/*マウスをのせたとき*/
-    color:#000000;
-    font-style:normal;
-    text-decoration:none;
-}
-a:active {/*クリック中*/
-    text-decoration:none;
-}
-</style>
+    <div align="center">
+        <h1>
+            <a href="http://shiritori.herokuapp.com/">全自動しりとり</a>
+        </h1>
+        <style type="text/css">
+            <!--
+            .typetext {
+                font-size: 17pt;
+                width: 8em;
+            }
+            -->
+        </style>
+        <style type="text/css">
+            <!--
+            .typetext1 {
+                font-size: 17pt;
+                width: 4em;
+            }
+            -->
+        </style>
+        <style type="text/css">
+            a { /*リンクされた文字*/
+                color: #000000;
+                font-style: normal;
+                text-decoration: none;
+            }
+
+                a:link { /*未訪問のリンク*/
+                    color: #000000;
+                    font-style: normal;
+                    text-decoration: none;
+                }
+
+                a:visited { /*訪問後のリンク*/
+                    color: #000000;
+                    text-decoration: none;
+                }
+
+                a:hover { /*マウスをのせたとき*/
+                    color: #000000;
+                    font-style: normal;
+                    text-decoration: none;
+                }
+
+                a:active { /*クリック中*/
+                    text-decoration: none;
+                }
+        </style>
 
 
-		<input type="text" class="typetext" id="text_box" value=""> <button id="button" class="typetext1">Go!</button>
-		<br>
-	</div>
-	<div Align="center" id="output" style="font-size:15pt;"></div>
-	<div Align="center"><br><br><br><br><div id="busy4" class="square"></div></div>
-	<br><br>
-	<span style="margin:15px 15px 15px 15px">連絡先：nitazou@gmail.com</span><br><br>
-	<span style="margin:15px 15px 15px 15px"></span><br>
-<span style="margin:15px 15px 15px 15px"><a href="https://developers.google.com/">GoogleサジェストAPI</a></span><br>
-<!-- Begin Yahoo! JAPAN Web Services Attribution Snippet -->
-<span style="margin:15px 15px 15px 15px"><a href="http://developer.yahoo.co.jp/about">Webサービス by Yahoo! JAPAN</a></span>
-<!-- End Yahoo! JAPAN Web Services Attribution Snippet -->
-<br>
-
-	</body>
+        <input type="text" class="typetext" id="text_box" value="">
+        <button id="button" class="typetext1">Go!</button>
+        <br>
+        <br>
+        <div id="kankaku">
+            <br>
+            <br>
+            <br>
+        </div>
+        <div id="busy4" class="square" align="center"></div>
+        <!-- 結果出力 -->
+        <div align="center" id="output" style="font-size: 15pt;"></div>
+        <!-- 結果出力エンド -->
+    </div>
+    <br>
+    <!-- Begin Yahoo! JAPAN Web Services Attribution Snippet -->
+    <span style="margin: 15px 15px 15px 15px">
+        <a href="http://developer.yahoo.co.jp/about">Webサービス by Yahoo! JAPAN</a>
+    </span>
+    <!-- End Yahoo! JAPAN Web Services Attribution Snippet -->
+    <br>
+</body>
 </html>

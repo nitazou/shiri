@@ -28,8 +28,8 @@ class Shiritori
 		20.times{|n| 
 			#サジェスト一文字設定
 			last_word_suggest_set
-			#puts @suggest_q
-			#puts n
+			puts @suggest_q
+			puts n
  			#サジェスト取得
 			google_suggest
 			
