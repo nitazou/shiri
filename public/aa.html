@@ -37,7 +37,7 @@
                     jQuery.each(outdata, function (i) {
 
 
-                        $("#output").append("<p>" + "<a href=\"http://www.amazon.co.jp/gp/search?ie=UTF8&camp=247&creative=1211&index=aps&&linkCode=ur2&tag=webappct-22&keywords=" + encodeURI(outdata[i]) + "\"" + "TARGET=\"_blank\">" + outdata[i] + "</a>" + "</p>");
+                        $("#output").append("<p>" + "<a href=\"https://www.google.co.jp/search?hl=ja&tbm=shop&q=" + encodeURI(outdata[i]) + "\"" + "TARGET=\"_blank\">" + outdata[i] + "</a>" + "</p>");
                     });
 
                     $(function () {
