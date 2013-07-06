@@ -8,6 +8,8 @@
     <script src="jquery.activity-indicator-1.0.0.js"></script>
 
     <script type="text/javascript">
+        //IEキャッシュ対策
+        $.ajaxSetup({ cache: false });
         $(function () {
 
             $.get("shiritori_tango", function (data) {
@@ -15,7 +17,6 @@
             });
         });
         jQuery(document).ready(function () {
-
             $('#busy4').activity({ segments: 12, width: 5.5, space: 6, length: 13, color: '#252525', speed: 1.5 });
             $("#busy4").hide();
             $("#kankaku_shita").hide();
@@ -35,7 +36,6 @@
                     $("#kankaku").hide();
                     jQuery.each(outdata, function (i) {
                         $("#output").append("<p>" + outdata[i] + "</p>");
-                        //alert(divstr+outdata[i]+"</div>");
                     });
 
                     $(function () {
@@ -136,16 +136,29 @@
         <div align="center" id="output" style="font-size: 15pt;"></div>
         <!-- 結果出力エンド -->
     </div>
-    <br>   
-             <div id="kankaku_shita">
-      <br>  
-    <br>
-</div>
+
+    <div id="kankaku_shita">
+        <br>   
+         <br>
+        <br>
+    </div>
     <!-- Begin Yahoo! JAPAN Web Services Attribution Snippet -->
     <span style="margin: 15px 15px 15px 15px">
         <a href="http://developer.yahoo.co.jp/about">Webサービス by Yahoo! JAPAN</a>
     </span>
     <!-- End Yahoo! JAPAN Web Services Attribution Snippet -->
     <br>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-42270734-1', 'herokuapp.com');
+        ga('send', 'pageview');
+
+</script>
 </body>
 </html>
