@@ -18,13 +18,13 @@
 
             $('#busy4').activity({ segments: 12, width: 5.5, space: 6, length: 13, color: '#252525', speed: 1.5 });
             $("#busy4").hide();
-
+            $("#kankaku_shita").hide();
             $("#button").click(function () {
 
                 $("#output").html("");
 
 
-
+                $("#kankaku_shita").show();
                 $("#kankaku").show();
                 $("#busy4").show();
                 $.get("shiritori_process?key=" + encodeURI($("#text_box").val()), function (data) {
@@ -136,9 +136,11 @@
         <div align="center" id="output" style="font-size: 15pt;"></div>
         <!-- 結果出力エンド -->
     </div>
-    <br>    
+    <br>   
+             <div id="kankaku_shita">
       <br>  
     <br>
+</div>
     <!-- Begin Yahoo! JAPAN Web Services Attribution Snippet -->
     <span style="margin: 15px 15px 15px 15px">
         <a href="http://developer.yahoo.co.jp/about">Webサービス by Yahoo! JAPAN</a>
