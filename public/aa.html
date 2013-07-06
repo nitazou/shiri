@@ -35,7 +35,9 @@
                     $("#busy4").hide();
                     $("#kankaku").hide();
                     jQuery.each(outdata, function (i) {
-                        $("#output").append("<p>" + outdata[i] + "</p>");
+
+
+                        $("#output").append("<p>" + "<a href=\"http://www.amazon.co.jp/gp/search?ie=UTF8&camp=247&creative=1211&index=aps&&linkCode=ur2&tag=webappct-22&keywords=" + encodeURI(outdata[i]) + "\"" + "TARGET=\"_blank\">" + outdata[i] + "</a>" + "</p>");
                     });
 
                     $(function () {
@@ -138,10 +140,12 @@
     </div>
 
     <div id="kankaku_shita">
-        <br>   
-         <br>
+        <br>
+        <br>
         <br>
     </div>
+    <span style="margin: 15px 15px 15px 15px">Contact webappct@gmail.com<br>
+    </span>
     <!-- Begin Yahoo! JAPAN Web Services Attribution Snippet -->
     <span style="margin: 15px 15px 15px 15px">
         <a href="http://developer.yahoo.co.jp/about">Webサービス by Yahoo! JAPAN</a>
@@ -159,6 +163,6 @@
         ga('create', 'UA-42270734-1', 'herokuapp.com');
         ga('send', 'pageview');
 
-</script>
+    </script>
 </body>
 </html>

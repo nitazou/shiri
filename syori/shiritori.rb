@@ -25,11 +25,21 @@ class Shiritori
 		end
 	 	
 	 	
-		20.times{|n| 
+		50.times{|n| 
 			#サジェスト一文字設定
 			last_word_suggest_set
-			puts @suggest_q
-			puts n
+			#puts @suggest_q
+			#puts n
+			
+			#サジェストキーワードチェック
+			if @suggest_q==nil then
+				@yomi_keyword="ギブアップ3"
+				#最終結果変数に格納
+				result_make
+				return @result
+			end
+			
+			
  			#サジェスト取得
 			google_suggest
 			
@@ -109,6 +119,8 @@ class Shiritori
 	 	yomi_yahooapi
 	 	#音引き削除
 	 	onbiki_del
+	 	#小文字を大文字に変換
+	 	komoji_chg
 	 	#んチェック
 	 	end_check=nnchk
 	 	return end_check
@@ -143,11 +155,33 @@ class Shiritori
 	end
 	
 	def onbiki_del
-		@yomi_keyword_result.slice! "ー"
-		@yomi_keyword_result.slice! "ー"
-		@yomi_keyword_result.slice! "-"
+		@yomi_keyword_result.delete!("ー")
+		@yomi_keyword_result.delete!("-")
 	end
 	
+	def komoji_chg
+		@yomi_keyword_result.gsub!("ぁ","あ")
+		@yomi_keyword_result.gsub!("ぃ","い")
+		@yomi_keyword_result.gsub!("ぅ","う")
+		@yomi_keyword_result.gsub!("ぇ","え")
+		@yomi_keyword_result.gsub!("ぉ","お")
+		@yomi_keyword_result.gsub!("っ","つ")
+		@yomi_keyword_result.gsub!("ゃ","や")
+		@yomi_keyword_result.gsub!("ゅ","ゆ")
+		@yomi_keyword_result.gsub!("ょ","よ")
+		@yomi_keyword_result.gsub!("ゎ","わ")
+		@yomi_keyword_result.gsub!("ァ","あ")
+		@yomi_keyword_result.gsub!("ィ","い")
+		@yomi_keyword_result.gsub!("ゥ","う")
+		@yomi_keyword_result.gsub!("ェ","え")
+		@yomi_keyword_result.gsub!("ォ","お")
+		@yomi_keyword_result.gsub!("ッ","つ")
+		@yomi_keyword_result.gsub!("ャ","や")
+		@yomi_keyword_result.gsub!("ュ","ゆ")
+		@yomi_keyword_result.gsub!("ョ","よ")
+		@yomi_keyword_result.gsub!("ヮ","わ")
+	end
+
 	def nnchk
 		if @yomi_keyword_result[@yomi_keyword_result.length-1]=="ん"
  			return 1
